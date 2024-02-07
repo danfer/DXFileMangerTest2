@@ -1,0 +1,22 @@
+﻿
+
+@Html.DevExpress().FileManager(
+    settings =>
+    {
+        settings.Name = "fileManager";
+
+        settings.CallbackRouteValues = new { Controller = "Documents", Action = "GetDocuments" };
+
+        settings.SettingsFileList.ThumbnailsViewSettings.ThumbnailWidth = 100;
+        settings.SettingsFileList.ThumbnailsViewSettings.ThumbnailHeight = 100;
+
+        settings.SettingsEditing.AllowCreate = false;
+        settings.SettingsEditing.AllowDelete = false;
+        settings.SettingsEditing.AllowMove = false;
+        settings.SettingsEditing.AllowRename = false;
+
+        settings.SettingsUpload.Enabled = false;
+
+        settings.SettingsAdaptivity.Enabled = false;
+    }
+).BindToFileSystemProvider(Model).GetHtml()
